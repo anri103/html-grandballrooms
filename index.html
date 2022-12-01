@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Стекломорфизм">
+    <meta name="author" content="AndreyG">
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png">
+    <!-- Site Title -->
+    <title>Grand Ballroom</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/glightbox.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="css/fontawesome-all.min.css" type="text/css">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#nav-scroll">
+
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
+    <div id="home"></div>
+
+    <style>
+        .header-top-wrap {
+            border-bottom: 1px solid rgb(255 255 255 / 10%);
+            padding: 14px 0;
+        }
+
+        .header-top-links {
+            padding: 10px 0;
+        }
+
+        .header-top-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header-top-links a {
+            font-size: 16px;
+            font-weight: normal;
+            color: #fff;
+        }
+
+        .header-top-links a:hover {
+            color: #fff;
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        .header-action-button {
+            display: flex;
+            justify-content: end;
+            padding: 10px 0;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .header-action-button {
+                justify-content: center;
+            }
+        }
+
+        .mainmenu {
+            -webkit-transition: .5s;
+            transition: .5s;
+            padding: 12px 0;
+            min-height: 29px;
+        }
+
+        .mainmenu.sticky {
+            position: fixed;
+            z-index: 999;
+            background-color: rgb(0 0 0 / 75%);
+            padding: 16px 0;
+            -webkit-box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+            box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+            width: 100%;
+            top: 0;
+            -webkit-transition: .5s;
+            transition: .5s;
+        }
+
+        /* .mainmenu.sticky .nav-link {
+            color: #000;
+        }
+
+        .mainmenu.sticky .nav-link:hover {
+            color: #000;
+        }
+
+        .mainmenu.sticky .nav-link.active {
+            color: #000;
+        }
+
+        .mainmenu.sticky .nav-link.active:hover {
+            color: #000;
+        }
+
+        .mainmenu.sticky .nav-link span:before {
+            background-color: rgb(0 0 0 / 75%);
+        } */
+
+        .navbar {
+            min-height: 29px;
+        }
+
+        .nav-link {
+            color: #fff;
+            opacity: 0.7;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        .nav-link.active {
+            color: #fff;
+            opacity: 1;
+        }
+
+        .nav-link.active:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        .nav-link span {
+            position: relative;
+            padding: 0px 7px 15px 7px;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-link span:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: rgb(255 255 255 / 75%);
+            visibility: hidden;
+            -webkit-transform: scaleX(0);
+            -moz-transform: scaleX(0);
+            -ms-transform: scaleX(0);
+            -o-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transition: all 0.2s ease-in-out 0s;
+            -moz-transition: all 0.2s ease-in-out 0s;
+            -ms-transition: all 0.2s ease-in-out 0s;
+            -o-transition: all 0.2s ease-in-out 0s;
+            transition: all 0.2s ease-in-out 0s;
+        }
+
+        .nav-link.active span:before {
+            visibility: visible !important;
+            -webkit-transform: scaleX(1);
+            -moz-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+            -o-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+
+        .nav-link:hover span:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            -moz-transform: scaleX(1);
+            -ms-transform: scaleX(1);
+            -o-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+
+        /* Коллапс навбар */
+
+        .navbar-toggler .icon-bar {
+            background-color: #fff;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 99999;
+                width: 300px;
+                height: 100% !important;
+                max-height: 100% !important;
+                background: rgba(29, 29, 36, 0.87);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                text-align: left;
+                padding: 100px 30px 0;
+                margin-top: 0;
+                box-shadow: 0px 4px 16px rgb(0 0 0 / 7%);
+                -webkit-animation-name: slideInRight;
+                animation-name: slideInRight;
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+
+            @-webkit-keyframes slideInRight {
+                0% {
+                    -webkit-transform: translate3d(100%, 0, 0);
+                    transform: translate3d(100%, 0, 0);
+                    visibility: visible
+                }
+
+                to {
+                    -webkit-transform: translateZ(0);
+                    transform: translateZ(0)
+                }
+            }
+
+            @keyframes slideInRight {
+                0% {
+                    -webkit-transform: translate3d(100%, 0, 0);
+                    transform: translate3d(100%, 0, 0);
+                    visibility: visible
+                }
+
+                to {
+                    -webkit-transform: translateZ(0);
+                    transform: translateZ(0)
+                }
+            }
+
+            .animate__slideInRight {
+                -webkit-animation-name: slideInRight;
+                animation-name: slideInRight
+            }
+
+            .navbar button:not(.collapsed) {
+                position: fixed;
+                top: 20px;
+                right: 30px;
+            }
+
+            .navbar-collapse .nav-item {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .navbar-collapse .nav-link span {
+                padding: 0px 7px 10px 7px;
+            }
+
+        }
+    </style>
+    <!--start header-->
+    <header id="header" class="p-0 bg-dark">
+        <!--start header top-->
+        <div class="header-top">
+            <div class="container">
+                <div class="row g-3 header-top-wrap align-items-center">
+                    <div class="col-md-4">
+                        <!--logo-->
+                        <div class="navbar-brand">
+                            <div class="logo-image">
+                                <img src="img/logo_white.svg" alt="">
+                            </div>
+                            <div class="logo-subtitle">
+                                Пространство<br> для мероприятий
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none d-md-block">
+                        <div class="header-top-links text-center">
+                            <ul>
+                                <li><a href="tel:+79250494301">+7 (925) 049-43-01</a></li>
+                                <li><a href="mailto:welcome@grandballroom.ru">welcome@grandballroom.ru</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none d-md-block">
+                        <div class="header-action-button">
+                            <a class="btn btn-primary pill white-space-nowrap" href="tel:+79250494301">
+                                <i class="fas fa-phone fa-rotate-90 fs-12 mr-5"></i> <span>Связаться</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end header top-->
+        <!--start mainmenu-->
+        <div class="mainmenu">
+            <div class="container">
+                <nav class="navbar navbar-expand-xl">
+
+                    <button class="navbar-toggler collapsed ms-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                        aria-label="МЕНЮ">
+                        <span class="icon-bar top-bar"></span>
+                        <span class="icon-bar middle-bar"></span>
+                        <span class="icon-bar bottom-bar"></span>
+                    </button>
+
+                    <!--navbar links-->
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home"><span>Форматы</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#section2"><span>Залы</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section3"><span>Преимущества</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section4"><span>Кухня</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section5"><span>Организаторам</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#map"><span>Контакты</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--end mainmenu-->
+    </header>
+    <!--end header-->
+
+    <!-- main-container -->
+    <div class="main-container">
+
+        <!-- Типы мероприятий, для которых подходит зал -->
+
+        <!-- <section class="p-0" id="slider">
+            <div id="fullwidth-nav-swiper" class="swiper-container">
+                <div class="swiper-wrapper">
+    
+                    <div class="swiper-slide bg-img" style="background-image: url(img/bg-hero-01.jpg)">
+                        <div class="header-content slide-header text-center">
+                            <div class="slide-back" data-swiper-parallax="-400">
+                                <h2 class="title text-black">Зал Grand Ballroom</h2>
+                                <p>Конференции, презентации, фуршеты</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="swiper-slide bg-img" style="background-image: url(img/bg-hero-02.jpg)">
+                        <div class="header-content slide-header text-center">
+                            <div class="slide-back" data-swiper-parallax="-400">
+                                <h2 class="title text-black">Фойе Grand Ballroom</h2>
+                                <p>Презентации, выставки</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide bg-img" style="background-image: url(img/bg-hero-02.jpg)">
+                        <div class="header-content slide-header text-center">
+                            <div class="slide-back" data-swiper-parallax="-400">
+                                <h2 class="title text-black">Зал Трансформер</h2>
+                                <p>Тренинги, онлайн презентации</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide bg-img" style="background-image: url(img/bg-hero-02.jpg)">
+                        <div class="header-content slide-header text-center">
+                            <div class="slide-back" data-swiper-parallax="-400">
+                                <h2 class="title text-black">VIP</h2>
+                                <p>Презентации, выставки</p>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <div class="swiper-slide bg-img" style="background-image: url(img/bg-hero-02.jpg)">
+                        <div class="header-content slide-header text-center">
+                            <div class="slide-back" data-swiper-parallax="-400">
+                                <h2 class="title text-black">Большая переговорная</h2>
+                                <p>Презентации, выставки</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section> -->
+
+        <!-- <section class="lg">
+            <div class="container">
+                <div class="gallery-description aos-init aos-animate" style="background-image: url(img/bg-gal-01.JPG);"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="overlay-dark"></div>
+                    <div class="gallery-description__title">Н1 Заголовок для SEO (обязательно)</div>
+                    <div class="gallery-description__caption">
+                        Конгресс-центр Grand Ballroom подходит для любых типов корпоративных и частных мероприятий:
+                    </div>
+                    <div class="gallery-list mb-4">
+                        <ul>
+                            <li>Конференции</li>
+                            <li>Презентации</li>
+                            <li>Фуршеты</li>
+                            <li>Тренинги</li>
+                            <li>Выставки</li>
+                            <li>Банкеты</li>
+                            <li>Онлайн презентации</li>
+                            <li>Автомобильные презентации</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+
+        <style>
+            .intro {
+                background-image: url(img/bg-hero-01.jpg);
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .intro-welcome {
+                padding-top: 110px;
+                padding-left: 50px;
+                padding-right: 450px;
+            }
+
+            .intro-welcome__slogan {
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 1;
+                letter-spacing: 1.3px;
+                color: #f9be7c;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+
+            .intro-welcome__headline {
+                font-size: 52px;
+                color: #fff;
+                margin-bottom: 26px;
+            }
+
+            .intro-welcome__caption {
+                font-size: 22px;
+                color: #fff;
+                margin-bottom: 46px;
+            }
+
+            .intro-welcome__text {
+                font-size: 21px;
+                line-height: 1;
+                color: #c1cad5;
+                margin-bottom: 70px;
+            }
+
+            .intro-welcome__button {
+                margin-bottom: 130px;
+            }
+
+            .intro-list {
+                font-weight: 700;
+                font-size: 14px;
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                color: #fff;
+                margin-left: -14px;
+                margin-bottom: 0;
+            }
+
+            .intro-list li:last-child {
+                margin-bottom: 17px;
+            }
+
+            .intro-list__item {
+                color: #fff;
+                padding-left: 24px;
+                padding-right: 34px;
+                padding-bottom: 15px;
+                position: relative;
+            }
+
+            .intro-list__item:before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 3px;
+                height: 14px;
+                width: 14px;
+                border: 3px solid #f6d2a9;
+                border-radius: 50%;
+                background: 0 0;
+            }
+
+            .intro-panel {
+                position: absolute;
+                right: 100px;
+                bottom: -100px;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(4px);
+            }
+
+            .intro-panel__body {
+                padding: 64px 42px;
+                color: #fff;
+            }
+
+            .intro-panel__digit {
+                position: relative;
+                font-size: 50px;
+                font-weight: 300;
+                line-height: 1;
+                margin-bottom: 36px;
+            }
+
+            .intro-panel__caption {
+                margin-bottom: 35px;
+            }
+
+            .orange {
+                color: #f9be7c;
+            }
+
+            .sup {
+                display: inline-block;
+                transform: translateY(-25px);
+                font-size: 12px;
+            }
+
+            .bg-linear-dark {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .55) 90%), linear-gradient(rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, .55));
+            }
+
+            @media (max-width: 991px) {
+                .intro-welcome {
+                    padding: 0;
+                }
+                .intro-welcome__headline {
+                    font-size: 48px;
+                }
+                .intro-welcome__list {
+                    margin-bottom: 35px;
+                }
+                .intro-list {
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -webkit-flex-direction: column;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                }
+
+                .intro-list__item {
+                    font-size: 16px;
+                    font-weight: normal;
+                    margin-bottom: 17px;
+                }
+
+                .intro-list__item:before {
+                    top: 5px;
+                }
+
+                .intro-welcome__headline {
+                    font-size: 24px;
+                }
+
+                .intro-welcome__caption {
+                    font-size: 18px;
+                }
+
+                .intro-panel {
+                    display: none;
+                    position: initial;
+                    border-top-right-radius: 0;
+                    border-top-left-radius: 0;
+                }
+                .bg-linear-dark {
+                    background: rgba(0, 0, 0, 0.65);
+                }
+            }
+        </style>
+        <section class="lg intro">
+            <div class="bg-linear-dark"></div>
+            <div class="container relative">
+                <div class="intro-welcome">
+                    <!-- <div class="intro-welcome__slogan">Все начинается с хорошего зала</div> -->
+                    <div class="intro-welcome__headline">Grand Ballroom</div>
+                    <div class="intro-welcome__caption">Конгресс-центр Grand Ballroom подходит для любых типов
+                        корпоративных и частных мероприятий:</div>
+                    <!-- <div class="intro-welcome__text">Удобная площадка для любых событий, творчества и работы</div> -->
+                    <!-- <div class="intro-welcome__button">
+                        <button class="btn btn_intro">Забронировать зал &gt;</button>
+                    </div> -->
+                    <div class="intro-welcome__list">
+                        <ul class="intro-list">
+                            <li class="intro-list__item">Конференции</li>
+                            <li class="intro-list__item">Презентации</li>
+                            <li class="intro-list__item">Фуршеты</li>
+                            <li class="intro-list__item">Тренинги</li>
+                        </ul>
+                        <ul class="intro-list">
+                            <li class="intro-list__item">Выставки</li>
+                            <li class="intro-list__item">Банкеты</li>
+                            <li class="intro-list__item">Онлайн презентации</li>
+                            <li class="intro-list__item">Автомобильные презентации</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="intro-panel">
+                    <div class="intro-panel__body">
+                        <div class="intro-panel__digit">830 m<span class="sup">2</span></div>
+                        <div class="intro-panel__caption">
+                            Удобная площадка <br> для любых событий, <br> творчества и работы
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Схема конгресс-центра -->
+        <section class="lg">
+            <div class="container">
+                <div class="section-headline text-center mb-60">
+                    <h2><span class="text-primary">Схема</span><br> конгресс-центра</h2>
+                </div>
+                <div class="text-center aos-init aos-animate" data-aos="fade-up">
+                    <img class="img-fluid" src="img/bg-schema-01.png" alt="">
+                </div>
+                <div class="d-flex justify-content-center mt-60">
+                    <a class="btn btn-primary pill" href="https://my.matterport.com/show/?m=z5czfFVBVua"
+                        target="_blank"><i class="far fa-eye fs-12 mr-10"></i><span>Смотреть
+                            3D
+                            тур</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Фото -->
+        <section class="lg" id="section2">
+            <div class="container">
+                <div class="section-headline text-center mb-60">
+                    <h2>Фотографии залов</h2>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="gallery-panel aos-init aos-animate" data-aos="fade-up">
+                            <a class="d-block gallery1 bg-img h-585" href="img/gb-main/01.jpg"
+                                style="background-image: url(img/gb-main/01.jpg);">
+                                <div class="gallery-panel__open">
+                                    <button type="button" class="gallery-panel__open__btn"></button>
+                                </div>
+                                <div class="gallery-panel__footer">
+                                    <div class="gallery-panel__title">Зал Grand Ballroom</div>
+                                    <div class="gallery-panel__caption">Смотреть фото</div>
+                                </div>
+                            </a>
+                            <div style="display: none;">
+                                <img class="gallery1" src="img/gb-main/02.jpg" alt="">
+                                <img class="gallery1" src="img/gb-main/03.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="gallery-panel aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                            <a class="d-block gallery3 bg-img h-380" href="img/gb-foye/01.jpg"
+                                style="background-image: url(img/gb-foye/01.jpg);">
+                                <div class="gallery-panel__open">
+                                    <button type="button" class="gallery-panel__open__btn"></button>
+                                </div>
+                                <div class="gallery-panel__footer">
+                                    <div class="gallery-panel__title">Фойе Grand Ballroom</div>
+                                    <div class="gallery-panel__caption">Смотреть фото</div>
+                                </div>
+                            </a>
+                            <div style="display: none;">
+                                <img class="gallery3" src="img/gb-foye/02.jpg" alt="">
+                                <img class="gallery3" src="img/gb-foye/03.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="gallery-panel aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                            <a class="d-block gallery2 bg-img h-380" href="img/gb-transformer/01.jpg"
+                                style="background-image: url(img/gb-transformer/01.jpg);">
+                                <div class="gallery-panel__open">
+                                    <button type="button" class="gallery-panel__open__btn"></button>
+                                </div>
+                                <div class="gallery-panel__footer">
+                                    <div class="gallery-panel__title">Зал Трансформер</div>
+                                    <div class="gallery-panel__caption">Смотреть фото</div>
+                                </div>
+                            </a>
+                            <div style="display: none;">
+                                <img class="gallery2" src="img/gb-transformer/02.jpg" alt="">
+                                <img class="gallery2" src="img/gb-transformer/03.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="gallery-panel aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                            <a class="d-block gallery4 bg-img h-585" href="img/gb-vip/01.jpg"
+                                style="background-image: url(img/gb-vip/01.jpg);">
+                                <div class="gallery-panel__open">
+                                    <button type="button" class="gallery-panel__open__btn"></button>
+                                </div>
+                                <div class="gallery-panel__footer">
+                                    <div class="gallery-panel__title">VIP</div>
+                                    <div class="gallery-panel__caption">Смотреть фото</div>
+                                </div>
+                            </a>
+                            <div style="display: none;">
+                                <img class="gallery4" src="img/gb-vip/02.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-primary pill mb-30" href="javascript:void(0)" id="show-more">Смотреть
+                                ещё</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="show-more-content">
+
+                    <div class="col-lg-6">
+                        <div class="gallery-panel aos-init aos-animate" data-aos="fade-up">
+                            <a class="d-block gallery5 bg-img h-585" href="img/gb-peregov/01.jpg"
+                                style="background-image: url(img/gb-peregov/01.jpg);">
+                                <div class="gallery-panel__open">
+                                    <button type="button" class="gallery-panel__open__btn"></button>
+                                </div>
+                                <div class="gallery-panel__footer">
+                                    <div class="gallery-panel__title">Большая переговорная</div>
+                                    <div class="gallery-panel__caption">Смотреть фото</div>
+                                </div>
+                            </a>
+                            <!-- <div style="display: none;">
+                                <img class="gallery5" src="img/dc-main/02.jpg" alt="">
+                                <img class="gallery5" src="img/dc-main/03.jpg" alt="">
+                            </div> -->
+                        </div>
+
+                        <div class="gallery-panel aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                            <a class="d-block gallery7 bg-img h-380" href="img/gb-grim-1/01.jpg"
+                                style="background-image: url(img/gb-grim-1/01.jpg);">
+                                <div class="gallery-panel__open">
+                                    <button type="button" class="gallery-panel__open__btn"></button>
+                                </div>
+                                <div class="gallery-panel__footer">
+                                    <div class="gallery-panel__title">Гримёрная #1</div>
+                                    <div class="gallery-panel__caption">Смотреть фото</div>
+                                </div>
+                            </a>
+                            <!-- <div style="display: none;">
+                                <img class="gallery7" src="img/gb-foye/02.jpg" alt="">
+                                <img class="gallery7" src="img/gb-foye/03.jpg" alt="">
+                                <img class="gallery7" src="img/gb-foye/04.jpg" alt="">
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="gallery-panel aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                            <a class="d-block gallery6 bg-img h-380" href="img/gb-grim-2/01.jpg"
+                                style="background-image: url(img/gb-grim-2/01.jpg);">
+                                <div class="gallery-panel__open">
+                                    <button type="button" class="gallery-panel__open__btn"></button>
+                                </div>
+                                <div class="gallery-panel__footer">
+                                    <div class="gallery-panel__title">Гримёрная #2</div>
+                                    <div class="gallery-panel__caption">Смотреть фото</div>
+                                </div>
+                            </a>
+                            <!-- <div style="display: none;">
+                                <img class="gallery6" src="img/gb-transformer/02.jpg" alt="">
+                            </div> -->
+                        </div>
+
+                        <div class="gallery-panel aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                            <a class="d-block gallery8 bg-img h-585" href="img/gb-grim-3/01.jpg"
+                                style="background-image: url(img/gb-grim-3/01.jpg);">
+                                <div class="gallery-panel__open">
+                                    <button type="button" class="gallery-panel__open__btn"></button>
+                                </div>
+                                <div class="gallery-panel__footer">
+                                    <div class="gallery-panel__title">Гримёрная #3</div>
+                                    <div class="gallery-panel__caption">Смотреть фото</div>
+                                </div>
+                            </a>
+                            <!-- <div style="display: none;">
+                                <img class="gallery8" src="img/gb-grim-3/01.jpg" alt="">
+                            </div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 9 причин провести мероприятие у нас -->
+        <section class="lg bg-img" id="section3" style="background-image: url(img/bg-reasons-01.jpg)">
+            <div class="overlay-dark"></div>
+            <div class="container">
+                <div class="section-headline text-center section-text-white mb-60">
+                    <h2><span class="text-primary">9 причин</span><br> провести свое мероприятие у нас</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Расположение</h5>
+                                <p class="box-description">Конгресс-центр находится в самом центре Москвы, в 5 минутах
+                                    от метро Павелецкая</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up"
+                            data-aos-delay="100">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Кухня</h5>
+                                <p class="box-description">Собственная кухня полного цикла. Сделаем все, что пожелает
+                                    заказчик</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up"
+                            data-aos-delay="200">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Парковка</h5>
+                                <p class="box-description">Рядом расположено 3 паркинга: на территории конгресс центра,
+                                    городской и подземный</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up"
+                            data-aos-delay="300">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Цена</h5>
+                                <p class="box-description">Прозрачная система ценообразования с возможностью выбора
+                                    тарифа для мероприятия</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up"
+                            data-aos-delay="400">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Дизайн</h5>
+                                <p class="box-description">В оформлении интерьера скомпилированы хайтек и
+                                    конструктивизм. Предпочтение отдано натуральным цветам и материалам</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up"
+                            data-aos-delay="500">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Залы</h5>
+                                <p class="box-description">9 разных залов вместимостью до 1200 гостей</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up"
+                            data-aos-delay="600">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Партнерская скидка</h5>
+                                <p class="box-description">Партнерская скидка в отеле Marriott Court Yard Павелецкая</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up"
+                            data-aos-delay="700">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Полное Wi-Fi покрытие 5G</h5>
+                                <p class="box-description">Два канала интернета от разных провайдеров</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="promo-box promo-center h-100 aos-init aos-animate" data-aos="fade-up"
+                            data-aos-delay="800">
+                            <div class="promo-container">
+                                <!-- <i class="fas fa-bullhorn promo-icon d-block mb-25 text-primary"></i> -->
+                                <h5 class="box-title mb-15">Авто-презентация</h5>
+                                <p class="box-description">Монтажные ворота размером 3*3,5 метра позволяют загонять в
+                                    зал любые автомобили, в том числе грузовые</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Кухня -->
+        <section class="lg" id="section4">
+            <div class="container">
+                <div class="section-headline text-center mb-60">
+                    <h2>Кухня</h2>
+                </div>
+                <div class="swiper-container rounded" id="kitchen-nav-swiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide bg-img" style="background-image: url(img/kitchen/01.jpg)">
+                        </div>
+
+                        <div class="swiper-slide bg-img" style="background-image: url(img/kitchen/03.jpg)">
+                        </div>
+
+                        <div class="swiper-slide bg-img" style="background-image: url(img/kitchen/04.jpg)">
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <div class="position-relative text-center mt-60">
+                    <a href="#" class="btn btn-primary pill"><span>Сделать запрос на проведение мероприятия</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Организаторам (документы) -->
+        <section class="lg bg-img" id="section5" style="background-image: url(img/bg-buttons-01.jpeg)">
+            <div class="overlay-dark"></div>
+            <div class="container">
+                <div class="section-headline text-center section-text-white mb-60">
+                    <h2>Организаторам мероприятий</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <a class="d-block h-100 aos-init aos-animate" href="#" data-aos="fade-up">
+                            <div class="promo-box promo-btn v-center justify-content-center text-center h-100">
+                                <span class="h5 box-title">Презентация</span>
+                                <span class="download-link">Скачать</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="d-block h-100 aos-init aos-animate" href="#" data-aos="fade-up" data-aos-delay="100">
+                            <div class="promo-box promo-btn v-center justify-content-center text-center h-100">
+                                <span class="h5 box-title">Условия проведения мероприятий</span>
+                                <span class="download-link">Скачать</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="d-block h-100 aos-init aos-animate" href="#" data-aos="fade-up" data-aos-delay="200">
+                            <div class="promo-box promo-btn v-center justify-content-center text-center h-100">
+                                <span class="h5 box-title">Регламент монтажных работ</span>
+                                <span class="download-link">Скачать</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="d-block h-100 aos-init aos-animate" href="#" data-aos="fade-up" data-aos-delay="300">
+                            <div class="promo-box promo-btn v-center justify-content-center text-center h-100">
+                                <span class="h5 box-title">Фотографии</span>
+                                <span class="download-link">Скачать</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="d-block h-100 aos-init aos-animate" href="#" data-aos="fade-up" data-aos-delay="400">
+                            <div class="promo-box promo-btn v-center justify-content-center text-center h-100">
+                                <span class="h5 box-title">Схема расстановки</span>
+                                <span class="download-link">Скачать</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="d-block h-100 aos-init aos-animate" href="#" data-aos="fade-up" data-aos-delay="500">
+                            <div class="promo-box promo-btn v-center justify-content-center text-center h-100">
+                                <span class="h5 box-title">Форма договора</span>
+                                <span class="download-link">Скачать</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="position-relative text-center mt-60">
+                    <a href="#" class="btn btn-primary pill"><span><i class="far fa-file-archive mr-5"></i> Скачать всё
+                            одним архивом</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Карта с кнопками, Контакты -->
+        <section class="lg" id="map">
+            <div class="container">
+                <div class="section-headline text-center mb-60">
+                    <h2>Контакты</h2>
+                </div>
+
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <div class="text-center overflow-hidden rounded aos-init aos-animate" data-aos="fade-up">
+                            <img class="img-fluid" src="img/map-gb-01.JPG" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 ms-auto">
+                        <div
+                            class="promo-box p-y-10 p-x-0 promo-left bg-transparent mb-15 no-shadow no-blur relative text-mobile-center">
+                            <div class="promo-container-big-sm">
+                                <div
+                                    class="promo-big icon-sm promo-icon-bg circle b-0 bg-primary raised-sm mb-25 d-none d-lg-block">
+                                    <i class="fas fa-phone fa-rotate-90 promo-icon"></i>
+                                </div><!-- / promo-icon-bg -->
+                                <h6 class="box-title">Телефон</h6>
+                                <p class="box-description">
+                                    <a class="text-link" href="tel:+79250494301">+7 (925) 049-43-01</a>
+                                </p>
+                            </div><!-- / promo-container -->
+                        </div><!-- / promo-box -->
+
+                        <div
+                            class="promo-box p-y-10 p-x-0 promo-left bg-transparent mb-15 no-shadow no-blur relative text-mobile-center">
+                            <div class="promo-container-big-sm">
+                                <div
+                                    class="promo-big icon-sm promo-icon-bg circle b-0 bg-primary raised-sm mb-25 d-none d-lg-block">
+                                    <i class="fas fa-envelope promo-icon"></i>
+                                </div><!-- / promo-icon-bg -->
+                                <h6 class="box-title">Email</h6>
+                                <p class="box-description">
+                                    <a class="text-link"
+                                        href="mailto:welcome@grandballroom.ru">welcome@grandballroom.ru</a>
+                                </p>
+                            </div><!-- / promo-container -->
+                        </div><!-- / promo-box -->
+
+                        <div
+                            class="promo-box p-y-10 p-x-0 promo-left bg-transparent mb-0 pb-0 no-shadow no-blur relative text-mobile-center">
+                            <div class="promo-container-big-sm">
+                                <div
+                                    class="promo-big icon-sm promo-icon-bg circle b-0 bg-primary raised-sm mb-25 d-none d-lg-block">
+                                    <i class="fas fa-map-marker-alt promo-icon"></i>
+                                </div><!-- / promo-icon-bg -->
+                                <h6 class="box-title">Адрес</h6>
+                                <p class="box-description">
+                                    Шлюзовая набережная 2/1 строение 1
+                                </p>
+                            </div><!-- / promo-container -->
+                        </div><!-- / promo-box -->
+
+                        <div class="mt-30 text-mobile-center">
+                            <a class="btn btn-primary pill mw-270" href="#">
+                                Открыть в Яндекс картах
+                            </a>
+                        </div>
+
+                        <div class="mt-30 text-mobile-center">
+                            <a class="btn btn-primary pill mw-270" href="#">
+                                Открыть в Google maps
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="dark">
+        <div class="container">
+            <div class="row v-center mobile-center">
+                <div class="col-12 footer-left-area tablet-top">
+                    <p>© 2022 Grand Ballroom, все права защищены, разработка <a href="https://startsite.studio/"
+                            target="_blank">StartSite</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a class="callback-button callback-2" href="tel:+79250494301">
+        <img class="callback-button__img" src="img/phone-call.png" alt="">
+    </a>
+
+    <!-- Core JavaScript -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/glightbox.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+
+            // sticky header
+            $(window).on('scroll', function () {
+                var scroll = $(window).scrollTop();
+                if (scroll < 450) {
+                    $(".mainmenu").removeClass("sticky");
+                } else {
+                    $(".mainmenu").addClass("sticky");
+                }
+            });
+
+            // show more
+            $('#show-more-content').hide();
+
+            $('#show-more').click(function () {
+                $('#show-more-content').show(300);
+                $('#show-less').show();
+                $('#show-more').hide();
+            });
+
+        }(jQuery));
+    </script>
+</body>
+
+</html>
